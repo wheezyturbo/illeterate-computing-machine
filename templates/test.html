@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Results</title>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-800 text-white">
+    <div class="max-w-lg mx-auto mt-8 px-4">
+      <label for="link" class="block mb-2">Enter the link</label>
+      <div class="flex">
+        <input
+          type="text"
+          name="link"
+          id="link"
+          class="w-full bg-gray-900 text-white border border-gray-700 rounded-l py-2 px-4 focus:outline-none focus:border-blue-500"
+        />
+        <button
+          onclick="rip()"
+          class="bg-blue-500 hover:bg-blue-600 text-white rounded-r py-2 px-4"
+        >
+          do it Kakarot!
+        </button>
+      </div>
+    </div>
+    <div id="cards" class="max-w-lg mx-auto mt-8 grid grid-cols-1 gap-4"></div>
+  </body>
+  <script>
+    function rip() {
+      const cardsContainer = document.getElementById("cards");
+      cardsContainer.innerHTML = "";
+      fetch(`/cs?link=${link.value}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("ok");
+          // Iterate through the data and create a card for each item
+          data.forEach((item) => {
+            let percentage = item.percentage;
+
+            // Create a card div
+            const card = document.createElement("div");
+            card.className =
+              "bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg";
+
+            // Create a card header
+            const cardHeader = document.createElement("div");
+            cardHeader.className = "px-6 py-4";
+            const cardTitle = document.createElement("h2");
+            cardTitle.className = "text-2xl font-bold mb-2";
+            cardTitle.textContent = item.name;
+            cardHeader.appendChild(cardTitle);
+            const cardSubTitle = document.createElement("p");
+            cardSubTitle.className = "text-sm";
+            cardSubTitle.textContent = `Reg. No: ${item.regno} | Percentage: ${percentage}%`;
+            cardHeader.appendChild(cardSubTitle);
+            card.appendChild(cardHeader);
+
+            // Create a card body
+            const cardBody = document.createElement("div");
+            cardBody.className = "px-6 py-4";
+            Object.keys(item.marks).forEach((key) => {
+              const subjectRow = document.createElement("div");
+              subjectRow.className = "flex justify-between mb-2";
+              const subjectName = document.createElement("div");
+              subjectName.className = "text-lg font-bold";
+              subjectName.textContent = key;
+              subjectRow.appendChild(subjectName);
+              const subjectMarks = document.createElement("div");
+              subjectMarks.className = "text-lg";
+              subjectMarks.textContent = `${item.marks[key]}/50`;
+              subjectRow.appendChild(subjectMarks);
+              cardBody.appendChild(subjectRow);
+            });
+            card.appendChild(cardBody);
+
+            // Append card div to cards container
+            cardsContainer.appendChild(card);
+          });
+        });
+    }
+  </script>
+</html>
