@@ -9,6 +9,82 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <style>
+      #loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(84, 149, 184, 0.8);
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #fa40cb;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#loading-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  text-align: center;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #ddd;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar::before {
+  content: '';
+  position: absolute;
+  left: -30%;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  background-color: #007bff;
+  animation: progress-bar 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes progress-bar {
+  0% {
+    left: -30%;
+    right: 100%;
+  }
+  50% {
+    left: 100%;
+    right: -30%;
+  }
+  100% {
+    left: 100%;
+    right: -30%;
+  }
+}
+
+    </style>
   </head>
   <body class="bg-gray-800 text-white">
     <div class="max-w-lg mx-auto mt-8 px-4">
@@ -27,16 +103,68 @@
           do it Kakarot!
         </button>
       </div>
+      <div id="loading-screen">
+        <div class="loader"></div>
+        <div id="loading-message"></div>
+        <div class="progress-bar"></div>
+
+      </div>
     </div>
     <div id="cards" class="max-w-lg mx-auto mt-8 grid grid-cols-1 gap-4"></div>
   </body>
   <script>
+
+// Get the loading screen and message elements
+const loadingScreen = document.getElementById('loading-screen');
+const loadingMessage = document.getElementById('loading-message');
+
+// Show the loading screen and set the initial message
+function showLoadingScreen() {
+  loadingScreen.style.display = 'block';
+  loadingMessage.innerText = 'Process is undergoing...';
+}
+
+// Update the loading message
+function updateLoadingMessage(message) {
+  loadingMessage.innerText = message;
+}
+
+// Hide the loading screen
+function hideLoadingScreen() {
+  loadingScreen.style.display = 'none';
+}
+
+// Call the functions as needed
+
+// Perform the long-running process
+
+// Process completed, hide the loading screen
+
+
+hideLoadingScreen();
+
     function rip() {
+      
       const cardsContainer = document.getElementById("cards");
       cardsContainer.innerHTML = "";
+      showLoadingScreen();
+      setTimeout(() => {
+        updateLoadingMessage('Wait while the process is complete...');
+      }, 5000);
+      setTimeout(() => {
+        updateLoadingMessage('Bruh, just wait...');
+      }, 15000);
+      setTimeout(() => {
+        updateLoadingMessage('Heres a fact while you wait: selenium is trash');
+      }, 20000);
+      setTimeout(() => {
+        updateLoadingMessage('Just a lil bit more , im not kidding...');
+      }, 30000);
       fetch(`/cs?link=${link.value}`)
         .then((response) => response.json())
         .then((data) => {
+          hideLoadingScreen();
+
           console.log("ok");
           // Iterate through the data and create a card for each item
           data.forEach((item) => {
@@ -81,6 +209,12 @@
             // Append card div to cards container
             cardsContainer.appendChild(card);
           });
+        })
+        .catch(()=>{
+          hideLoadingScreen();
+
+          alert('error getting results!');
+
         });
     }
   </script>
