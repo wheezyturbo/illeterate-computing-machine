@@ -6224,3 +6224,68 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: http://w
 1678597910346	Marionette	INFO	Stopped listening on port 10546
 Dynamically enable window occlusion 1
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+1678599078217	geckodriver	INFO	Listening on 127.0.0.1:10824
+1678599081258	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "10825" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RUBYCI~1\\AppData\\Local\\Temp\\rust_mozprofileerK1tq"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1678599082059	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1678599082073	Marionette	INFO	Listening on port 10833
+Read port: 10833
+WebDriver BiDi listening on ws://127.0.0.1:10825
+1678599082503	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RUBYCI~1\\AppData\\Local\\Temp\\rust_mozprofileerK1tq\\search.json.mozlz4", (void 0)))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:10825/devtools/browser/65e35f42-20bc-48eb-abfe-042084625834
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."
+1678599111940	Marionette	INFO	Stopped listening on port 10833
+Dynamically enable window occlusion 1
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://www.exam.kannuruniversity.ac.in."

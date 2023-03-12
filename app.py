@@ -15,7 +15,7 @@ def get_course_semester(url):
         course = re.search(r'^\D+', course_semester).group()
         semester = int(re.search(r'\d+$', course_semester).group())
         print(semester)
-        return ("course : ",course,"\nsemester:", semester)
+        return (course, semester)
     else:
         return None
 
@@ -35,7 +35,7 @@ cs = []
 def scrape(link):
     print("starting...")
     course, semester = get_course_semester(link)
-    print(course,semester)
+    print("course: ",course,"\nsemester: ",semester)
     cs.clear()
     marks_dict = {}
     driver = webdriver.Firefox(options=options)
