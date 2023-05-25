@@ -9,6 +9,15 @@
 
 
 <style>
+    @media print {
+  .inputfields {
+    display:none;
+  }
+  body{
+    background-color: black;
+    color: rgb(0, 0, 0);
+  }
+}
 
 .hidden{
   display:none;
@@ -744,14 +753,17 @@
 
 <body  class="bg-gray-800 text-white">
   <div class="max-w-lg mx-auto mt-8 px-4">
+    <div class="inputfields">
     <label for="link" class="block mb-2">Enter the link</label>
-    <div class="flex">
+    <div class="flex ">
       <input
         type="text"
         name="link"
         id="link"
         class="w-full bg-gray-900 text-white border border-gray-700 rounded-l py-2 px-4 focus:outline-none focus:border-blue-500"
       />
+      <input type="file" id="file-upload" class="px-4 py-2 border rounded-md bg-gray-100 text-gray-500 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent">
+
       <button
         onclick="startScraping()"
         class="bg-blue-500 hover:bg-blue-600 text-white rounded-r py-2 px-4"
@@ -759,6 +771,7 @@
         do it Kakarot!
       </button>
     </div>
+</div>
     <div id="status" class="bg-gray-900 text-red rounded-lg overflow-hidden shadow-lg"></div>
     <div id="result"></div>
     <div id="cards" class="max-w-lg mx-auto mt-8 grid grid-cols-1 gap-4"></div>
@@ -798,7 +811,11 @@
       setTimeout(() => {
         status.textContent="please wait...";
       }, 1000);
-  var link = document.getElementById("link").value;
+      var link = document.getElementById("link").value;
+  var file = document.getElementById("file-upload").files[0];
+  var formData = new FormData();
+  formData.append("link", link);
+  formData.append("file", file);
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -854,8 +871,8 @@
           })
     }
   };
-  xhr.open('GET', '/cs?link=' + encodeURIComponent(link));
-  xhr.send();
+  xhr.open('POST', '/bs');
+  xhr.send(formData);
 }
 
   </script>

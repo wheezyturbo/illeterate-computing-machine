@@ -7,8 +7,12 @@ from flask import Flask, jsonify,render_template,request
 import time
 import re
 from flask_socketio import SocketIO
-
+import json
 import eventlet
+import geckodriver_autoinstaller
+
+
+geckodriver_autoinstaller.install()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -28,8 +32,8 @@ def get_course_semester(url):
         return None
 # run_with_ngrok(app) 
 
-regarray = ['mm20ccsr03','mm20ccsr22','mm20ccsr18', 'mm20ccsr16', 'mm20ccsr13','mm20ccsr14','mm20ccsr19','mm20ccsr30','WM20BCAR02','WM20BCAR06','WM20BCAR12','WM20BCAR01','WM20BCAR03']
-aadhararray = [663432470004,686185381631,578533381676, 823508626405, 783917821528,292531761206,780080049949,885417748021,331693014683,250826071094,632336907426,814114687132,373297720804]
+# regarray = ['mm20ccsr03','mm20ccsr22','mm20ccsr18', 'mm20ccsr16', 'mm20ccsr13','mm20ccsr14','mm20ccsr19','mm20ccsr30','WM20BCAR02','WM20BCAR06','WM20BCAR12','WM20BCAR01','WM20BCAR03']
+# aadhararray = [663432470004,686185381631,578533381676, 823508626405, 783917821528,292531761206,780080049949,885417748021,331693014683,250826071094,632336907426,814114687132,373297720804]
 # # regarray = ['WM20BCAR02']
 # regarray = ['WM20BCAR06']
 # aadhararray = [250826071094]
@@ -38,7 +42,7 @@ aadhararray = [663432470004,686185381631,578533381676, 823508626405, 78391782152
 options = Options()
 options.add_argument('-headless')
 cs = []
-def scrape(link):
+def scrape(link,regarray,aadhararray):
     print("starting...")
     course, semester = get_course_semester(link)
     print("course: ",course,"\nsemester: ",semester)
@@ -104,7 +108,32 @@ def get_cs():
 
 @app.route('/')
 def index():
-    return render_template("bonk.html")
+    return render_template("bonk2.html")
+
+@app.route('/bs', methods=['POST'])
+def get_bs():
+    try:
+        link = request.form.get('link')
+        file = request.files['file']
+
+        # Read the file data
+        file_contents = file.read().decode('utf-8')
+
+        # Parse the JSON data
+        json_data = json.loads(file_contents)
+
+        # Extract the regarray and aadhararray values
+        regarray = json_data['registerno']
+        aadhararray = json_data['aadhar no']
+
+        # Call the scrape function with the link and arrays
+        result = scrape(link,regarray,aadhararray)
+
+        # Return the result as a JSON response
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({e})
+
 
 if __name__ == '__main__':
     eventlet.monkey_patch()
